@@ -1,9 +1,10 @@
-from numpy import *
+from numpy import * # Calling all Numpy's functions!
 
 
     
 
 def compute_error_for_given_points(b, m, points):
+    """ Computing errors for given points """
     totalError = 0
     for i in range(0, len(points)):
         x = points[i, 0]
@@ -12,6 +13,7 @@ def compute_error_for_given_points(b, m, points):
     return totalError / float(len(points))
 
 def step_gradient(b_current, m_current, points, learning_rate):
+    """ step gradient """
     # gradient descent
     b_gradient = 0
     m_gradient = 0
@@ -28,6 +30,7 @@ def step_gradient(b_current, m_current, points, learning_rate):
 
 
 def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_iterations):
+    """ Gradient descent runner """
     b = starting_b
     m = starting_m
 
@@ -36,6 +39,7 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
     return [b,m]
 
 def run():
+    """ Run function! """
     points = genfromtxt('data.csv', delimiter=';')
     # HyperParameters
     learning_rate = 0.0001
@@ -52,4 +56,4 @@ def run():
     print("After ",num_iterations," iterations")
     print("m = ",m ," b = ",b ," error = ",compute_error_for_given_points(b, m, points))
 
-if __name__ == 'main': run()
+if __name__ == 'main': run() # Calling the run function !
